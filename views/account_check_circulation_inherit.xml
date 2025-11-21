@@ -1,0 +1,21 @@
+<odoo>
+    <record id="account_check_form_view_inherit_circulation" model="ir.ui.view">
+        <field name="name">account.check.form.inherit.circulation</field>
+        <field name="model">account.check</field>
+        <field name="inherit_id" ref="account_check_management.view_account_check_form"/>
+        <field name="arch" type="xml">
+        <xpath expr="//sheet/notebook" position="inside">
+            <page string="Ciro Bilgileri" invisible="not circulated_check_ids">
+                <field name="circulated_check_ids" nolabel="1">
+                    <list string="Ciro Bilgileri" create="false" delete="false">
+                        <field name="company_name" string="Şirket Adı" width="200"/>
+                        <field name="tax_number" string="Vergi Numarası"/>
+                        <field name="circulation_date" string="Ciro Tarihi"/>
+                        <field name="notes" string="Notlar"/>
+                    </list>
+                </field>
+            </page>
+        </xpath>
+        </field>
+    </record>
+</odoo>

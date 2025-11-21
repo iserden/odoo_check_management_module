@@ -1,0 +1,20 @@
+<odoo>
+    <record id="view_form_circulated_check" model="ir.ui.view">
+        <field name="name">circulated.check.form</field>
+        <field name="model">circulated.check</field>
+        <field name="arch" type="xml">
+            <form string="Ciro Bilgisi">
+                <sheet>
+                    <group>
+                        <field name="account_check_id" invisible="1"/>
+                        <field name="company_name"/>
+                        <field name="tax_number"/>
+                        <field name="address"/>
+                        <field name="circulation_date"/>
+                        <field name="notes"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+</odoo>

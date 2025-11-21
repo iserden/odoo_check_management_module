@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <menuitem id="menu_account_check_root"
+                  name="Çekler"
+                  parent="account.menu_finance_entries"
+                  sequence="10"/>
+        <menuitem id="menu_account_check_received"
+                  name="Alınan Çekler"
+                  parent="menu_account_check_root"
+                  action="action_account_check_received"
+                  sequence="10"/>
+        <menuitem id="menu_account_check_issued"
+                  name="Verilen Çekler"
+                  parent="menu_account_check_root"
+                  action="action_account_check_issued"
+                  sequence="20"/>
+    </data>
+</odoo>

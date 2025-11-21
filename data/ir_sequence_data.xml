@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo noupdate="1">
+    <data>
+        <record id="seq_account_check" model="ir.sequence">
+            <field name="name">Çek Numarası Serisi</field>
+            <field name="code">account.check.sequence</field>
+            <field name="prefix">CEK-</field>
+            <field name="padding">5</field>
+            <field name="company_id" eval="False"/>
+        </record>
+    </data>
+</odoo>

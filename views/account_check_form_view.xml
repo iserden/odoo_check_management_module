@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record id="view_account_check_form" model="ir.ui.view">
+            <field name="name">account.check.form</field>
+            <field name="model">account.check</field>
+            <field name="arch" type="xml">
+                <form string="Çek" class="o_form_with_chatter">
+                    <header>
+                        <button name="action_to_portfolio" type="object" string="Portföye Al"
+                                invisible="state != 'draft'" class="oe_highlight"/>
+                        <button name="action_to_bank_collection" type="object" string="Bankaya Tahsile Ver"
+                                invisible="state != 'portfolio'" class="oe_highlight"/>
+                        <button name="action_collected" type="object" string="Tahsil Et"
+                                invisible="not (state in ['portfolio', 'bank_collection'])" class="oe_highlight"/>
+                        <button name="action_bounced" type="object" string="Karşılıksız Yap"
+                                invisible="not (state in ['portfolio', 'bank_collection'])"/>
+                        <button name="action_draft" type="object" string="Taslağa Geri Çek"
+                                invisible="state == 'draft'"/>
+                        <button name="action_endorsed" type="object" string="Ciro Et"
+                        invisible="state != 'portfolio'" class="oe_highlight"/>
+                        <field name="state" widget="statusbar"
+                               statusbar_visible="draft,portfolio,bank_collection,collected,bounced"/>
+                    </header>
+
+                    <sheet>
+                        <div class="oe_title">
+                            <label for="name" class="oe_edit_only"/>
+                            <h1><field name="name" nolabel="1"/></h1>
+                        </div>
+
+                        <group string="Temel Bilgiler">
+                            <group>
+                                <field name="check_type"/>
+                                <field name="amount" widget="monetary" options="{'currency_field': 'currency_id'}"/>
+                                <field name="currency_id" invisible="1"/>
+                                <field name="due_date"/>
+                            </group>
+                            <group>
+                                <field name="serial_number"/>
+                                <field name="portfolio_number"/>
+                                <field name="issue_date"/>
+                                <field name="issue_place"/>
+                            </group>
+                        </group>
+
+                        <group>
+                            <group string="Taraflar">
+                                <field name="partner_id" string="İlişkili Cari Hesap"/>
+                            </group>
+
+                            <group string="Banka Detayları">
+                                <field name="journal_id"/>
+                                <field name="bank_id"/>
+                                <field name="branch_code"/>
+                                <field name="account_number"/>
+                                <field name="iban"/>
+                            </group>
+                        </group>
+
+                        <notebook>
+                            <page string="Notlar">
+                                <field name="note"/>
+                            </page>
+                        </notebook>
+
+                        <field name="move_id" invisible="1"/>
+
+                    </sheet>
+                </form>
+            </field>
+        </record>
+    </data>
+</odoo>

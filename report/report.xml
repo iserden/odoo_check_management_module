@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <report
+            id="report_check_slip"
+            string="Çek Bordrosu"
+            model="account.check"
+            report_type="qweb-pdf"
+            name="account_check_management.report_check_slip"
+        />
+    </data>
+</odoo>

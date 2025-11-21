@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <template id="report_check_slip">
+        <t t-call="web.external_layout">
+            <div class="page">
+                <h2 style="text-align:center;">Çek Bordrosu</h2>
+                <table class="table table-sm" style="width:60%;margin:auto;">
+                    <tr><th>Çek No</th><td><span t-field="o.name"/></td></tr>
+                    <tr><th>Tutar</th><td><span t-field="o.amount"/></td></tr>
+                    <tr><th>Vade Tarihi</th><td><span t-field="o.due_date"/></td></tr>
+                    <tr><th>Banka</th><td><span t-field="o.bank_id.name"/></td></tr>
+                    <tr><th>Notlar</th><td><span t-field="o.note"/></td></tr>
+                </table>
+            </div>
+        </t>
+    </template>
+</odoo>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record id="view_account_check_search" model="ir.ui.view">
+            <field name="name">account.check.search</field>
+            <field name="model">account.check</field>
+            <field name="arch" type="xml">
+                <search string="Çekleri Ara">
+                    <field name="name" string="Çek No"/>
+                    <field name="partner_id"/>
+                    <field name="state"/>
+                    <field name="due_date"/>
+                    <field name="amount"/>
+                    <filter string="Alınan Çekler" name="filter_received_checks" domain="[('check_type', '=', 'received')]"/>
+                    <filter string="Verilen Çekler" name="filter_issued_checks" domain="[('check_type', '=', 'issued')]"/>
+                    <separator/>
+                    <filter string="Yeni" name="filter_draft" domain="[('state', '=', 'draft')]"/>
+                    <filter string="Portföyde" name="filter_portfolio" domain="[('state', '=', 'portfolio')]"/>
+                    <filter string="Tahsil Edildi" name="filter_collected" domain="[('state', '=', 'collected')]"/>
+                    <filter string="Karşılıksız" name="filter_bounced" domain="[('state', '=', 'bounced')]"/>
+                    <group expand="0" string="Grup">
+                        <filter name="group_by_state" string="Duruma Göre" context="{'group_by': 'state'}"/>
+                        <filter name="group_by_partner" string="Müşteri/Tedarikçiye Göre" context="{'group_by': 'partner_id'}"/>
+                        <filter name="group_by_due_date" string="Vade Tarihine Göre" context="{'group_by': 'due_date:month'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+    </data>
+</odoo>

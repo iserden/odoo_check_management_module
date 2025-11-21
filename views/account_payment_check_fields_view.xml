@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record id="view_account_payment_check_fields_form" model="ir.ui.view">
+            <field name="name">account.payment.check.fields.form</field>
+            <field name="model">account.payment</field>
+            <field name="inherit_id" ref="account.view_account_payment_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//sheet/group" position="inside">
+                    <group string="Çek Bilgileri" attrs="{'invisible': [('payment_method_id.name', '!=', 'Çek')]}" >
+                        <field name="check_number"/>
+                        <field name="check_due_date"/>
+                        <field name="check_bank"/>
+                        <field name="check_amount" widget="monetary" options="{'currency_field': 'currency_id'}"/>
+                    </group>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

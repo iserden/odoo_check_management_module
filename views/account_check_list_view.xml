@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record id="view_account_check_tree" model="ir.ui.view">
+            <field name="name">account.check.tree</field>
+            <field name="model">account.check</field>
+            <field name="arch" type="xml">
+                <list string="Çek Listesi" default_order="due_date desc, name desc">
+                    <field name="name" string="Çek No" width="120px"/>
+                    <field name="serial_number" string="Seri No" width="80px"/>
+                    <field name="amount" sum="Total Tutar" string="Tutar" widget="monetary" options="{'currency_field': 'currency_id'}" width="120px"/>
+                    <field name="currency_id" invisible="1"/>
+                    <field name="due_date" string="Vade Tarihi" width="120px"/>
+                    <field name="issue_date" string="Keşide Tarihi" width="120px" optional="hidden"/>
+                    <field name="partner_id" string="İlişkili Cari Hesap"/>
+                    <field name="bank_id" string="Banka" optional="show"/>
+                    <field name="account_number" string="Hesap No" optional="hidden"/>
+                    <field name="iban" string="IBAN" optional="hidden"/>
+                    <field name="portfolio_number" string="Portföy No" optional="hidden"/>
+                    <field name="state" string="Durum" widget="badge" decoration-success="state == 'collected'"
+                           decoration-warning="state == 'bank_collection'"
+                           decoration-danger="state == 'bounced'"/>
+                </list>
+            </field>
+        </record>
+    </data>
+</odoo>
